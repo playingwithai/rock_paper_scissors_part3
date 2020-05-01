@@ -1,0 +1,7 @@
+numpy==1.18.3
+tensorflow-gpu==1.15.2 # if you have a CUDA compatible GPU
+# tensorflow==1.15.2
+pygame==1.9.6
+opencv-python==4.2.0.34
+keras==2.3.1
+imageai==2.1.5

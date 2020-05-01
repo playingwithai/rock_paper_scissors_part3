@@ -63,6 +63,8 @@ class Game:
         min_repeated_move_detection=30,
         no_detection_period=5,
     ):
+        # create dir that contains all the data of this project
+        self._create_data_dir()
         # Game window resolution
         self.screen_width = screen_width
         self.screen_height = screen_height
@@ -107,8 +109,6 @@ class Game:
         self.stop_detection = False
         # The last round user point
         self.last_user_point = None
-        # create dir that contains all the data of this project
-        self._create_data_dir()
         # Path for the file that contains the high score
         self.score_dir_path = os.path.join(base_path, "data", "score")
         # Get high score from stored file

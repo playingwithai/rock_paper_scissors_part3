@@ -81,6 +81,9 @@ class NextMovePredictor:
             os.mkdir(self.dataset_path)
         self.model.save(self.model_path)
 
+    def reset_played_moves(self):
+        self.played_moves = []
+
     def predict_next_move(self):
         # If move list is empty randomly choose one move
         if not self.played_moves:

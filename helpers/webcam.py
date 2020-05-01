@@ -1,6 +1,7 @@
 from contextlib import contextmanager
 
 import cv2
+import pygame
 
 
 @contextmanager
@@ -10,7 +11,7 @@ def opencv_video_capture(webcam_index):
     camera.release()
 
 
-def get_webcam_frame(camera, width=300, height=300):
-    _, frame = camera.read()
-    frame = cv2.resize(frame, (width, height), interpolation=cv2.INTER_LINEAR)
-    return frame
+def opencv_to_pygame_image(image):
+    image = cv2.resize(image, (300, 300), interpolation=cv2.INTER_LINEAR)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    return pygame.image.frombuffer(image.tostring(), image.shape[1::-1], "RGB")
